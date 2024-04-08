@@ -1,0 +1,20 @@
+{
+  "name": "${localWorkspaceFolderBasename}", // コンテナー表示名
+  "dockerComposeFile": "./compose.yml",
+  "service": "devcontainer-react",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "remoteUser": "${localEnv:USER}", // VS Codeがコンテナーにアタッチする際に使用するユーザー
+  "updateRemoteUserUID": true, // ユーザーのUID/GIDをホストのユーザーと同期
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint"],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.guides.bracketPairs": true,
+        "editor.renderWhitespace": "all"
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "${localWorkspaceFolderBasename}", // コンテナー表示名
+  "dockerComposeFile": "./compose.yml", // Docker Composeのファイルパス
+  "service": "app", // VS Codeがアタッチするコンテナー
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}", // VS Codeがコンテナー起動時に開くディレクトリ
+  "remoteUser": "${localEnv:USER}", // VS Codeがコンテナーにアタッチする際に使用するユーザー
+  "updateRemoteUserUID": true, // ユーザーのUID/GIDをホストのユーザーと同期
+  "postCreateCommand": "poetry install", // コンテナー作成/再作成後、workspaceFolderで初回のみ実行されるコマンド
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // 自動でインストールされるVS Codeの拡張機能
+        // UI
+        "oderwat.indent-rainbow",
+        // autocompletes
+        "VisualStudioExptTeam.vscodeintellicode",
+        "christian-kohler.path-intellisense",
+        // formatting and linting
+        "streetsidesoftware.code-spell-checker",
+        "EditorConfig.EditorConfig",
+        "esbenp.prettier-vscode",
+        "tamasfe.even-better-toml",
+        // Japanese
+        "sgryjp.japanese-word-handler",
+        "ICS.japanese-proofreading",
+        // Git
+        "codezombiech.gitignore",
+        "mhutchie.git-graph",
+        "eamodio.gitlens",
+        // Docker
+        "ms-azuretools.vscode-docker",
+        // Python
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "KevinRose.vsc-python-indent",
+        "njpwerner.autodocstring",
+        "LittleFoxTeam.vscode-python-test-adapter"
+      ],
+      "settings": {
+        // VS Codeの設定
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.guides.bracketPairs": true,
+        "editor.renderWhitespace": "all"
+        // Python
+        //"python.languageServer": "Pylance",
+        //"[python]": {
+        //"editor.defaultFormatter": "ms-python.black-formatter",
+        //"editor.formatOnSave": true,
+        //"editor.codeActionsOnSave": {
+        //"source.organizeImports": true
+        //}
+      },
+      "isort.args": ["profile", "black"]
+    }
+  }
+}

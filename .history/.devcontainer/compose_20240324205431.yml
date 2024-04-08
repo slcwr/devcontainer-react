@@ -1,0 +1,13 @@
+services:
+    app:
+        build:
+            context: .
+            args:
+                - USERNAME=${USER}
+        command: sleep infinity
+        volumes:
+            - vscode-extensions:/root/.vscode-server/extensions
+            - ../..:/workspaces:cached
+
+volumes:
+    vscode-extensions:

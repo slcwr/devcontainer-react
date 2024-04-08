@@ -1,0 +1,8 @@
+FROM node:18.12.1-alpine
+WORKDIR /work
+ARG USERNAME
+SHELL [ "/bin/bash", "-c" ]
+RUN cd /work \
+    && npm install \
+    && npm run build
+CMD ["npm","run","dev"]
