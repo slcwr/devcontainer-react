@@ -8,6 +8,18 @@ const Expression = () => {
   const title = "Expression";
   const arry = ["item1", "item2", "item3"];
   const hello = (arg) => `${arg} Function`;
+
+//   // 1. 通常の関数での書き方
+// function hello(arg) {
+//   return arg + " Function";
+// }
+
+// // 2. アロー関数での書き方
+// const hello = (arg) => `${arg} Function`;
+
+// // 使用例
+// console.log(hello("Arrow")); // "Arrow Function"
+
   const jsx = <h3>Hello JSX</h3>;
   
   console.log(jsx);
