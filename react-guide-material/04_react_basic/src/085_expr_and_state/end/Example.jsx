@@ -6,5 +6,6 @@
 import Child from "./components/Child";
 
 const Example = () => <Child />;
-
+//1は式
+//1;は文
 export default Example;

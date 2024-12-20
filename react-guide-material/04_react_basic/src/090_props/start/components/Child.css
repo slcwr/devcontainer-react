@@ -1,5 +1,11 @@
-.App-start .component {
+.App-start .component.blue {
   padding: 1rem;
   color: blue;
   border: 5px solid blue;
+}
+
+.App-start .component.red {
+  padding: 1rem;
+  color: red;
+  border: 5px solid red;
 }

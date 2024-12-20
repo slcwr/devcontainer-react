@@ -1,11 +1,12 @@
 import Counter from "./components/Counter";
-import { CounterProvider } from "./context/CounterContext";
+import { CounterProvider } from "./context";
+
 
 const Example = () => {
   return (
-    <CounterProvider>
+    <Provider store> 
       <Counter />
-    </CounterProvider>
+    </Provider>
   );
 };
 
