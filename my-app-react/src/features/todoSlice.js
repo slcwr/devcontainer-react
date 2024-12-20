@@ -1,11 +1,12 @@
-import { createSlice } from "@redux/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 //ローカルストレージから既存のTODOリスト配列を取得
 const getTodos = JSON.parse(localStorage.getItem("TODO"));
 
 //各タスクのIDを採番する関数
 const updateId = (arr) => {
-    const newObj = new Array();
+    const newObj =[];
+    //const newObj = new Array();
     arr.forEach((todo, index) => {
         newObj.push({id: index, task: todo.task});
     })
@@ -28,11 +29,11 @@ const todoSlice = createSlice({
             updateTodo = updateId(updateTodo);
             localStorage.setItem("TODO",JSON.stringify(updateTodo));
             return updateTodo;
-        },
+        }
     },
 });
 
-export const { add, remove } = todoSlice.actions;
+export const { add, remove, search } = todoSlice.actions;
 export default todoSlice.reducer;
 
 

@@ -1,16 +1,35 @@
-import { Box, Button, Stack } from "@mui/material";
+import { Box, Button, Stack, TextField } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { remove } from "../../geatures/todoSlice";
+import { remove } from "../../features/todoSlice";
+import { useState, useMemo } from 'react';
+
 
 function TodoList() {
     const todos = useSelector((state) => state.todos);
     const dispatch = useDispatch();
+    const [searchTerm, setSearchTerm] = useState("");
 
     const deleteTodo = (e, todo) => {
         dispatch(remove(todo));
     };
 
+    //memo化されたフィルタリング結果
+    const filteredTodos = useMemo(() => {
+      return todos.filter(todo => 
+        todo.task.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    }, [todos, searchTerm]);
+
     return (
+      <>
+        <Box sx={{ display: 'flex', justifyContent: 'center', m: 2 }}>
+                <TextField
+                    placeholder="タスクを検索"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    sx={{ width: 500 }}
+                />
+            </Box>
         <Stack
           direction="column"
           justifyContent="center"
@@ -20,8 +39,10 @@ function TodoList() {
             margin: 2,
           }}
         >
-          {todos.map((todo) => {
+          {filteredTodos.map((todo) => {
             return (
+             
+            
               <Box
                 key={todo.id}
                 sx={{
@@ -54,6 +75,7 @@ function TodoList() {
             );
           })}
         </Stack>
+      </>
       );
     }
     export default TodoList;

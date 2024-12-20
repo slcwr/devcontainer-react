@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 import { Grid, TextField } from "@mui/material"
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../../features/todoSlice";
-
+import TodoList from "./TodoList"
 
 function TodoInput() {
     const dispatch = useDispatch();
@@ -18,7 +18,8 @@ function TodoInput() {
     };
 
     return (
-        <Grid container spacing={5} alignItems="center" justifyContent="center">
+        <div>
+          <Grid container spacing={5} alignItems="center" justifyContent="center">
           <Grid item>
             <TextField
               value={task}
@@ -42,6 +43,8 @@ function TodoInput() {
             </Button>
           </Grid>
         </Grid>
+        <TodoList />
+        </div>
       );
     }
     
